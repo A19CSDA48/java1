@@ -282,4 +282,146 @@ class Studs
      ob.displayData();
    }
 }
+ 
+ 
+ 
+ 
+ 
+ 6...........SCROLL COLOR
+
+
+import java.awt.event.AdjustmentEvent;
+import java.awt.FlowLayout;
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JScrollBar;
+import javax.swing.JLabel;
+import javax.swing.JFrame;
+import java.awt.event.*;
+
+
+
+class SetScrollBar extends JFrame implements AdjustmentListener{
+ private JLabel labelRed, labelGreen, labelBlue;
+ private JScrollBar sBarRed, sBarGreen, sBarBlue;
+ 
+ public SetScrollBar(){
+  //setting layout
+  setLayout(new FlowLayout());
+  
+  //initializing label for each scrollbar;
+  labelRed = new JLabel("Adjust Red:");
+  labelGreen = new JLabel("Adjust Green:");
+  labelBlue = new JLabel("Adjust Blue:");
+  
+  //initializing scrollbar
+  sBarRed = new JScrollBar(JScrollBar.HORIZONTAL,0,5,0,255);
+  sBarGreen = new JScrollBar(JScrollBar.HORIZONTAL,0,5,0,255);
+  sBarBlue = new JScrollBar(JScrollBar.HORIZONTAL,0,5,0,255);
+  
+  //adding eventlistener
+  sBarRed.addAdjustmentListener(this);
+  sBarGreen.addAdjustmentListener(this);
+  sBarBlue.addAdjustmentListener(this);
+  
+  //adding label and scrollbar to the frame;
+  add(labelRed);
+  add(sBarRed);
+  add(labelGreen);
+  add(sBarGreen);
+  add(labelBlue);
+  add(sBarBlue);
+ }//end of constructor;
+ 
+ public void adjustmentValueChanged(AdjustmentEvent event){
+  int cRed, cGreen, cBlue; //store value of scrollbar
+  cRed = sBarRed.getValue(); //getting current value of scroll bar;
+  cGreen = sBarGreen.getValue();
+  cBlue = sBarBlue.getValue();
+  Color c=new Color(cRed,cGreen,cBlue);
+  
+  getContentPane().setBackground(c); //change the background color;
+ }//end of event handler
+} //end of SetScrollBar class
+
+public class ScrollColor{
+ public static void main(String[] args){
+  SetScrollBar demo = new SetScrollBar();
+  demo.setSize(200,300);
+  demo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  demo.setVisible(true);
+  demo.setTitle("ScrollbarDemo");
+ }
+} 
+
+
+
+
+7............STUDENTS FOR LOOP
+
+
+
+
+
+import java.util.*;
+class Stud
+{
+int  total,regno,java_mark,dbms_mark,os_mark;
+float avg;
+String name;
+Scanner sc=new Scanner(System.in);
+void readData()
+{
+System.out.print("Enter Roll no : ");
+regno=sc.nextInt();
+System.out.print("Enter Name : ");
+name=sc.next();
+System.out.print("Enter Java Mark : ");
+java_mark=sc.nextInt();
+System.out.print("Enter DBMS Mark : ");
+dbms_mark=sc.nextInt();
+System.out.print("Enter OS Mark: ");
+os_mark=sc.nextInt();
+}
+void processData()
+{
+total = java_mark+dbms_mark+os_mark;
+avg=total/3;
+}
+void display()
+{
+System.out.println("\n---------------------------------\n      "+name+"'s mark statement");
+System.out.println("\n---------------------------------\nRoll no : "+regno);
+System.out.println("Name : " +name);
+System.out.println("Java Mark : " +java_mark);
+System.out.println("DBMS Mark : " +dbms_mark);
+System.out.println("OS Mark : " +os_mark);
+System.out.println("Total : " +total);
+System.out.println("Average : " +avg+"\n--------------------------------------");
+}
+}
+class Studs
+{
+public static void main(String args[])
+{
+        
+       Stud ob[]=new Stud[2]; 
+       for(int i=0; i<2; i++)
+      {   
+         ob[i] = new Stud();
+        ob[i].readData();  
+         ob[i].processData();
+
+          
+     } 
+  System.out.println("**** Data Entered as below ****"); 
+  for(int i=0; i<2; i++)
+ {
+   
+   ob[i].display();
+ }
+}
+}
+
+
   
