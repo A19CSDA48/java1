@@ -1,0 +1,285 @@
+1                  ARITH FRAME 
+
+
+import java.awt.*;
+import java.awt.event.*;
+class ArithFrame extends Frame  implements ActionListener,WindowListener
+{
+  Label  l1,l2,l3;
+  TextField t1,t2,t3;
+  Button b1,b2,b3,b4;
+  
+  ArithFrame()
+  {
+    l1=new Label("Enter a : ");
+    l2=new Label("Enter b : ");
+    l3=new Label("Result : ");
+
+    t1=new TextField(10);
+    t2=new TextField(10);
+    t3=new TextField(10);
+
+    b1=new Button("ADD"); b1.addActionListener(this);
+    b2=new Button("SUB"); b2.addActionListener(this);
+    b3=new Button("MUL"); b3.addActionListener(this);
+    b4=new Button("DIV"); b4.addActionListener(this);
+
+    setTitle("Arithmetic Frame");
+    setVisible(true);
+    setLayout(new FlowLayout());
+    setSize(300,300);
+    
+    add(l1); add(t1); add(l2); add(t2); add(l3); add(t3);
+    add(b1); add(b2); add(b3); add(b4);
+    addWindowListener(this);
+    
+    }
+
+ public void  actionPerformed(ActionEvent e)
+ {
+  int a=Integer.parseInt(t1.getText());
+  int b= Integer.parseInt(t2.getText());
+  if (e.getSource()==b1)
+  {
+   int c=a+b;
+   t3.setText(""+c);
+  }
+if (e.getSource()==b2)
+  {
+   int c=a-b;
+   t3.setText(""+c);
+  }
+if (e.getSource()==b3)
+  {
+   int c=a*b;
+   t3.setText(""+c);
+  }
+if (e.getSource()==b4)
+  {
+   int c=a/b;
+   t3.setText(""+c);
+  }
+    }
+ 
+ public void windowOpened(java.awt.event.WindowEvent e){}
+  public void windowClosing(java.awt.event.WindowEvent e){ dispose();}
+  public void windowClosed(java.awt.event.WindowEvent e){}
+  public  void windowIconified(java.awt.event.WindowEvent e){}
+  public  void windowDeiconified(java.awt.event.WindowEvent  e){}
+  public  void windowActivated(java.awt.event.WindowEvent  e){}
+  public  void windowDeactivated(java.awt.event.WindowEvent e){}
+
+} // frame
+
+ class ArithFrameExa
+{
+  public static void main(String args[])
+ {
+   ArithFrame af=new ArithFrame();
+   }
+}
+
+
+
+
+
+
+2.................EMPLOYEE
+
+import java.util.Scanner;
+
+public class Employee 
+{
+
+ int empid;
+ String name;
+ float salary,pfsalary;
+ 
+ public void readdata() 
+{
+ 
+  Scanner in = new Scanner(System.in);
+  System.out.print("Enter the empid :: ");
+  empid = in.nextInt();
+  System.out.print("Enter the name :: ");
+  name = in.next();
+  System.out.print("Enter the salary :: ");
+  salary = in.nextFloat();
+  System.out.print("Enter the pfsalary :: ");
+ pfsalary = in.nextFloat();
+
+ }
+ public void processdata()
+{
+  salary =salary+pfsalary;
+}
+ public void display() 
+{
+  
+  System.out.println("Employee id = " + empid);
+  System.out.println("Employee name = " + name);
+  System.out.println("Employee salary = " + salary);
+   System.out.println("Employee pfsalary = " + pfsalary);
+ }
+ 
+ public static void main(String[] args) 
+{
+ 
+  Employee e[] = new Employee[5];
+  
+  for(int i=0; i<2; i++) 
+ {
+   
+   e[i] = new Employee();
+   e[i].readdata();
+  }
+  
+  System.out.println("**** Data Entered as below ****");
+  
+  for(int i=0; i<2; i++)
+ {
+   
+   e[i].display();
+  }
+ }
+}
+
+
+
+3................FILE WRITE
+
+
+
+import java.io.File;
+import java.io.IOException;
+import java.io.FileWriter;
+
+class FileWirte
+{
+public static void main(String args[])
+{
+try
+{
+File myobj=new File(args[0]);
+if(myobj.createNewFile())
+{
+System.out.println("File created "+myobj.getName());
+}
+else
+{
+System.out.println("File already exists");
+}
+FileWriter fw=new FileWriter(args[0]);
+fw.write("I am ragul from 1 mca b ");
+fw.write("My rollno is 31");
+fw.close();
+System.out.println("File writed successfully.");
+}
+catch(IOException e)
+{
+System.out.println("An error Occured");
+e.printStackTrace();
+}
+}
+
+}
+
+
+
+
+4.....SHAPE M
+
+
+interface Shape
+{
+public double area(int l,int b);
+}
+class Rectangle implements Shape
+{
+public double area(int l,int b)
+{
+return l*b;
+}
+}
+
+class Triangle implements Shape
+{
+public double area(int l,int b)
+{
+return 0.5*l*b;
+}
+}
+
+class Square implements Shape
+{
+public double area(int l,int b)
+{
+return l*l*b;
+}
+}
+
+class ShapeM
+{
+public static void main(String args[])
+{
+Shape s=new Rectangle();
+System.out.println("Area of Triangle is :"+s.area(10,20));
+Shape s1=new Triangle();
+System.out.println("Area of Triangle is :"+s1.area(50,20));
+Shape s3=new Square();
+System.out.println("Area of Square is :"+s3.area(25,1));
+}
+}
+
+
+
+
+5....STUD 
+
+
+
+class stud
+{
+int total ,regno,java_mark,os_mark;
+float avg;
+string name;
+Scanner sc=new Scanner(System.in);
+void readData()
+{
+   System.out.println("enter roll no:");
+   regno=sc.nextInt();
+   System.out.println("Enter name :");
+   name=sc.nextInt();
+   System.out.println("enter java mark:");
+   java_mark=sc.nextInt();
+   System.out.println("enter dbms mark:");
+    dbms_mark=sc.nextInt();
+}
+void processData()
+{
+   total=java_mark+dbms_java;
+   avg=total/2;
+
+}
+void Display()
+{
+System.out.println("\n------------\n"+name+" mark Statement);
+System.out.println("\nregno:"+regno);
+System.out.println("Name:"+name);
+System.out.println("java mark:"+java_mark);
+System.out.println("dbms mark:"+dbms_mark);
+System.out.println("total:"+total);
+Syste.out.println("average:"+avg+"\n------");
+}
+}
+class Studs
+{
+ public static void main(String args[])
+  {
+    stud ob=new stud();
+     ob.readData();
+     ob.processData();
+     ob.displayData();
+   }
+}
+  
