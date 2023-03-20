@@ -1,0 +1,682 @@
+1                  ARITH FRAME 
+
+
+import java.awt.*;
+import java.awt.event.*;
+class ArithFrame extends Frame  implements ActionListener,WindowListener
+{
+  Label  l1,l2,l3;
+  TextField t1,t2,t3;
+  Button b1,b2,b3,b4;
+  
+  ArithFrame()
+  {
+    l1=new Label("Enter a : ");
+    l2=new Label("Enter b : ");
+    l3=new Label("Result : ");
+
+    t1=new TextField(10);
+    t2=new TextField(10);
+    t3=new TextField(10);
+
+    b1=new Button("ADD"); b1.addActionListener(this);
+    b2=new Button("SUB"); b2.addActionListener(this);
+    b3=new Button("MUL"); b3.addActionListener(this);
+    b4=new Button("DIV"); b4.addActionListener(this);
+
+    setTitle("Arithmetic Frame");
+    setVisible(true);
+    setLayout(new FlowLayout());
+    setSize(300,300);
+    
+    add(l1); add(t1); add(l2); add(t2); add(l3); add(t3);
+    add(b1); add(b2); add(b3); add(b4);
+    addWindowListener(this);
+    
+    }
+
+ public void  actionPerformed(ActionEvent e)
+ {
+  int a=Integer.parseInt(t1.getText());
+  int b= Integer.parseInt(t2.getText());
+  if (e.getSource()==b1)
+  {
+   int c=a+b;
+   t3.setText(""+c);
+  }
+if (e.getSource()==b2)
+  {
+   int c=a-b;
+   t3.setText(""+c);
+  }
+if (e.getSource()==b3)
+  {
+   int c=a*b;
+   t3.setText(""+c);
+  }
+if (e.getSource()==b4)
+  {
+   int c=a/b;
+   t3.setText(""+c);
+  }
+    }
+ 
+ public void windowOpened(java.awt.event.WindowEvent e){}
+  public void windowClosing(java.awt.event.WindowEvent e){ dispose();}
+  public void windowClosed(java.awt.event.WindowEvent e){}
+  public  void windowIconified(java.awt.event.WindowEvent e){}
+  public  void windowDeiconified(java.awt.event.WindowEvent  e){}
+  public  void windowActivated(java.awt.event.WindowEvent  e){}
+  public  void windowDeactivated(java.awt.event.WindowEvent e){}
+
+} // frame
+
+ class ArithFrameExa
+{
+  public static void main(String args[])
+ {
+   ArithFrame af=new ArithFrame();
+   }
+}
+
+
+
+
+
+
+2.................EMPLOYEE
+
+import java.util.Scanner;
+
+public class Employee 
+{
+
+ int empid;
+ String name;
+ float salary,pfsalary;
+ 
+ public void readdata() 
+{
+ 
+  Scanner in = new Scanner(System.in);
+  System.out.print("Enter the empid :: ");
+  empid = in.nextInt();
+  System.out.print("Enter the name :: ");
+  name = in.next();
+  System.out.print("Enter the salary :: ");
+  salary = in.nextFloat();
+  System.out.print("Enter the pfsalary :: ");
+ pfsalary = in.nextFloat();
+
+ }
+ public void processdata()
+{
+  salary =salary+pfsalary;
+}
+ public void display() 
+{
+  
+  System.out.println("Employee id = " + empid);
+  System.out.println("Employee name = " + name);
+  System.out.println("Employee salary = " + salary);
+   System.out.println("Employee pfsalary = " + pfsalary);
+ }
+ 
+ public static void main(String[] args) 
+{
+ 
+  Employee e[] = new Employee[5];
+  
+  for(int i=0; i<2; i++) 
+ {
+   
+   e[i] = new Employee();
+   e[i].readdata();
+  }
+  
+  System.out.println("**** Data Entered as below ****");
+  
+  for(int i=0; i<2; i++)
+ {
+   
+   e[i].display();
+  }
+ }
+}
+
+
+
+3................FILE WRITE
+
+
+
+import java.io.File;
+import java.io.IOException;
+import java.io.FileWriter;
+
+class FileWirte
+{
+public static void main(String args[])
+{
+try
+{
+File myobj=new File(args[0]);
+if(myobj.createNewFile())
+{
+System.out.println("File created "+myobj.getName());
+}
+else
+{
+System.out.println("File already exists");
+}
+FileWriter fw=new FileWriter(args[0]);
+fw.write("I am ragul from 1 mca b ");
+fw.write("My rollno is 31");
+fw.close();
+System.out.println("File writed successfully.");
+}
+catch(IOException e)
+{
+System.out.println("An error Occured");
+e.printStackTrace();
+}
+}
+
+}
+
+
+
+
+4.....SHAPE M
+
+
+interface Shape
+{
+public double area(int l,int b);
+}
+class Rectangle implements Shape
+{
+public double area(int l,int b)
+{
+return l*b;
+}
+}
+
+class Triangle implements Shape
+{
+public double area(int l,int b)
+{
+return 0.5*l*b;
+}
+}
+
+class Square implements Shape
+{
+public double area(int l,int b)
+{
+return l*l*b;
+}
+}
+
+class ShapeM
+{
+public static void main(String args[])
+{
+Shape s=new Rectangle();
+System.out.println("Area of Triangle is :"+s.area(10,20));
+Shape s1=new Triangle();
+System.out.println("Area of Triangle is :"+s1.area(50,20));
+Shape s3=new Square();
+System.out.println("Area of Square is :"+s3.area(25,1));
+}
+}
+
+
+
+
+5....STUD 
+
+
+
+class stud
+{
+int total ,regno,java_mark,os_mark;
+float avg;
+string name;
+Scanner sc=new Scanner(System.in);
+void readData()
+{
+   System.out.println("enter roll no:");
+   regno=sc.nextInt();
+   System.out.println("Enter name :");
+   name=sc.nextInt();
+   System.out.println("enter java mark:");
+   java_mark=sc.nextInt();
+   System.out.println("enter dbms mark:");
+    dbms_mark=sc.nextInt();
+}
+void processData()
+{
+   total=java_mark+dbms_java;
+   avg=total/2;
+
+}
+void Display()
+{
+System.out.println("\n------------\n"+name+" mark Statement);
+System.out.println("\nregno:"+regno);
+System.out.println("Name:"+name);
+System.out.println("java mark:"+java_mark);
+System.out.println("dbms mark:"+dbms_mark);
+System.out.println("total:"+total);
+Syste.out.println("average:"+avg+"\n------");
+}
+}
+class Studs
+{
+ public static void main(String args[])
+  {
+    stud ob=new stud();
+     ob.readData();
+     ob.processData();
+     ob.displayData();
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6...........SCROLL COLOR
+
+
+import java.awt.event.AdjustmentEvent;
+import java.awt.FlowLayout;
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JScrollBar;
+import javax.swing.JLabel;
+import javax.swing.JFrame;
+import java.awt.event.*;
+
+
+
+class SetScrollBar extends JFrame implements AdjustmentListener{
+ private JLabel labelRed, labelGreen, labelBlue;
+ private JScrollBar sBarRed, sBarGreen, sBarBlue;
+ 
+ public SetScrollBar(){
+  //setting layout
+  setLayout(new FlowLayout());
+  
+  //initializing label for each scrollbar;
+  labelRed = new JLabel("Adjust Red:");
+  labelGreen = new JLabel("Adjust Green:");
+  labelBlue = new JLabel("Adjust Blue:");
+  
+  //initializing scrollbar
+  sBarRed = new JScrollBar(JScrollBar.HORIZONTAL,0,5,0,255);
+  sBarGreen = new JScrollBar(JScrollBar.HORIZONTAL,0,5,0,255);
+  sBarBlue = new JScrollBar(JScrollBar.HORIZONTAL,0,5,0,255);
+  
+  //adding eventlistener
+  sBarRed.addAdjustmentListener(this);
+  sBarGreen.addAdjustmentListener(this);
+  sBarBlue.addAdjustmentListener(this);
+  
+  //adding label and scrollbar to the frame;
+  add(labelRed);
+  add(sBarRed);
+  add(labelGreen);
+  add(sBarGreen);
+  add(labelBlue);
+  add(sBarBlue);
+ }//end of constructor;
+ 
+ public void adjustmentValueChanged(AdjustmentEvent event){
+  int cRed, cGreen, cBlue; //store value of scrollbar
+  cRed = sBarRed.getValue(); //getting current value of scroll bar;
+  cGreen = sBarGreen.getValue();
+  cBlue = sBarBlue.getValue();
+  Color c=new Color(cRed,cGreen,cBlue);
+  
+  getContentPane().setBackground(c); //change the background color;
+ }//end of event handler
+} //end of SetScrollBar class
+
+public class ScrollColor{
+ public static void main(String[] args){
+  SetScrollBar demo = new SetScrollBar();
+  demo.setSize(200,300);
+  demo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  demo.setVisible(true);
+  demo.setTitle("ScrollbarDemo");
+ }
+} 
+
+
+
+
+7............STUDENTS FOR LOOP
+
+
+
+
+
+import java.util.*;
+class Stud
+{
+int  total,regno,java_mark,dbms_mark,os_mark;
+float avg;
+String name;
+Scanner sc=new Scanner(System.in);
+void readData()
+{
+System.out.print("Enter Roll no : ");
+regno=sc.nextInt();
+System.out.print("Enter Name : ");
+name=sc.next();
+System.out.print("Enter Java Mark : ");
+java_mark=sc.nextInt();
+System.out.print("Enter DBMS Mark : ");
+dbms_mark=sc.nextInt();
+System.out.print("Enter OS Mark: ");
+os_mark=sc.nextInt();
+}
+void processData()
+{
+total = java_mark+dbms_mark+os_mark;
+avg=total/3;
+}
+void display()
+{
+System.out.println("\n---------------------------------\n      "+name+"'s mark statement");
+System.out.println("\n---------------------------------\nRoll no : "+regno);
+System.out.println("Name : " +name);
+System.out.println("Java Mark : " +java_mark);
+System.out.println("DBMS Mark : " +dbms_mark);
+System.out.println("OS Mark : " +os_mark);
+System.out.println("Total : " +total);
+System.out.println("Average : " +avg+"\n--------------------------------------");
+}
+}
+class Studs
+{
+public static void main(String args[])
+{
+        
+       Stud ob[]=new Stud[2]; 
+       for(int i=0; i<2; i++)
+      {   
+         ob[i] = new Stud();
+        ob[i].readData();  
+         ob[i].processData();
+
+          
+     } 
+  System.out.println("**** Data Entered as below ****"); 
+  for(int i=0; i<2; i++)
+ {
+   
+   ob[i].display();
+ }
+}
+}
+
+
+
+
+8..............book
+
+
+import java.util.Scanner;
+
+class Book {
+    int id;
+    String title;
+    String author;
+    String publisher;
+    double price;
+
+    void readData() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Book ID: ");
+        id = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Enter Book Title: ");
+        title = scanner.nextLine();
+        System.out.print("Enter Book Author: ");
+        author = scanner.nextLine();
+        System.out.print("Enter Book Publisher: ");
+        publisher = scanner.nextLine();
+        System.out.print("Enter Book Price: ");
+        price = scanner.nextDouble();
+        scanner.close();
+    }
+
+    void display() {
+        System.out.println("Book ID: " + id);
+        System.out.println("Book Title: " + title);
+        System.out.println("Book Author: " + author);
+        System.out.println("Book Publisher: " + publisher);
+        System.out.println("Book Price: " + price);
+        System.out.println("-----------------------------");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Book[] books = new Book[5];
+
+        for (int i = 0; i < books.length; i++) {
+            System.out.println("Enter details for Book " + (i+1) + ":");
+            Book book = new Book();
+            book.readData();
+            books[i] = book;
+        }
+
+        System.out.println("Details of 5 Books:");
+        for (Book book : books) {
+            book.display();
+        }
+    }
+}
+
+
+
+9...........theard
+
+class RunnableDemo implements Runnable {
+   private Thread t;
+   private String threadName;
+   
+   RunnableDemo( String name) {
+      threadName = name;
+      System.out.println("Creating " +  threadName );
+   }
+  
+   public void run() {
+      System.out.println("Running " +  threadName );
+      try {
+         for(int i = 4; i > 0; i--) {
+            System.out.println("Thread: " + threadName + ", " + i);
+            // Let the thread sleep for a while.
+            Thread.sleep(50);
+         }
+      } catch (InterruptedException e) {
+         System.out.println("Thread " +  threadName + " interrupted.");
+      }
+      System.out.println("Thread " +  threadName + " exiting.");
+   }
+   public void start () {
+      System.out.println("Starting " +  threadName );
+      if (t == null) {
+         t = new Thread (this, threadName);
+         t.start ();
+      }
+   }
+}
+public class TestThread {
+   public static void main(String args[]) {
+      RunnableDemo R1 = new RunnableDemo( "Thread-1");
+      R1.start();
+      
+      RunnableDemo R2 = new RunnableDemo( "Thread-2");
+      R2.start();
+   }   
+}
+
+
+
+
+10......ao swing
+
+
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+class AoSwing extends JFrame
+{
+JLabel l1,l2,l3,ltitle;
+JTextField t1,t2,t3;
+JButton b1,b2,b3,b4;
+
+AoSwing()
+{
+setLayout(null);
+setDefaultCloseOperation(EXIT_ON_CLOSE);
+ltitle=new JLabel("Arithmetic Operation using Swing");
+ltitle.setBounds(200,20,250,30);
+ltitle.setFont(new Font("arial",Font.BOLD,15));
+add(ltitle);
+
+l1=new JLabel("Enter a");
+l1.setBounds(100,60,100,30);
+add(l1);
+
+t1=new JTextField();
+t1.setBounds(200,60,200,30);
+add(t1);
+
+l2=new JLabel("Enter b");
+l2.setBounds(100,100,100,30);
+add(l2);
+
+t2=new JTextField();
+t2.setBounds(200,100,200,30);
+add(t2);
+
+l3=new JLabel("Result");
+l3.setBounds(270,140,130,30);
+add(l3);
+
+t3=new JTextField();
+t3.setBounds(330,140,70,30);
+add(t3);
+
+b1=new JButton("Add");
+b1.setBounds(100,140,70,30);
+add(b1);
+
+b2=new JButton("sub");
+b2.setBounds(180,140,70,30);
+add(b2);
+
+b3=new JButton("Mul");
+b3.setBounds(100,180,70,30);
+add(b3);
+
+b4=new JButton("Div");
+b4.setBounds(180,180,70,30);
+add(b4);
+
+b1.addActionListener(new ActionListener(){
+public void actionPerformed(ActionEvent e)
+{
+int a=Integer.parseInt(t1.getText());
+int b=Integer.parseInt(t2.getText());
+int c=a+b;
+t3.setText(""+c);
+}
+});
+
+b2.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e)
+{
+int a=Integer.parseInt(t1.getText());
+int b=Integer.parseInt(t2.getText());
+int c=a-b;
+t3.setText(""+c);
+}});
+
+b3.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e)
+{
+int a=Integer.parseInt(t1.getText());
+int b=Integer.parseInt(t2.getText());
+int c=a*b;
+t3.setText(""+c);
+}});
+
+b4.addActionListener (new ActionListener() {
+public void actionPerformed(ActionEvent e)
+{
+int a=Integer.parseInt(t1.getText());
+int b=Integer.parseInt(t2.getText());
+int c=a/b;
+t3.setText(""+c);
+
+}});
+
+}
+}
+
+class SwingFrame
+{
+public static void main(String args[])
+{
+AoSwing as=new AoSwing();
+as.setBounds(400,200,500,300);
+as.setVisible(true);
+}
+}
+
+
+
+11.....
+
+
+interface area1
+ { public void area(int height,int breadth); 
+}
+ class shape implements area1{
+ int height; 
+int breadth;
+ public void area(int height,int breadth)
+ { this.height=height; 
+this.breadth=breadth;
+ System.out.println("AREA OF THE SHAPE IS "+height*breadth);
+ }
+ 
+}
+ class Areainherit
+ {
+ public static void main(String args[]) 
+{
+ shape s1=new shape(); 
+s1.area(10,20);
+ }
+ }
+
+  
